@@ -12,6 +12,11 @@ jobs:
           fetch-depth: 0
       - name: Clone Quartz
         run: git clone https://github.com/jackyzha0/quartz
+      - name: Reconfigure Quartz
+        run: |
+          mv config.toml quartz/
+          mv data/* quartz/data
+          rm -rf quartz/content/*
       - name: Move content
         run: mv _index.md assets notes quartz/content
       - name: Build link index
