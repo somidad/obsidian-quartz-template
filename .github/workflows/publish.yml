@@ -33,6 +33,7 @@ jobs:
           hugo-version: '0.96.0'
           extended: true
       - name: Build Hugo
+        working-directory: quartz
         run: hugo --minify
       - name: Publish
         uses: peaceiris/actions-gh-pages@v3
