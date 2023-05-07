@@ -31,7 +31,7 @@ jobs:
         uses: peaceiris/actions-hugo@v2
         with:
           hugo-version: '0.96.0'
-          extedned: true
+          extended: true
       - name: Build Hugo
         run: hugo --minify
       - name: Publish
