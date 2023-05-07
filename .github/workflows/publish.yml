@@ -18,7 +18,8 @@ jobs:
           mv data/* quartz/data
           rm -rf quartz/content/*
       - name: Move content
-        run: mv _index.md assets notes quartz/content
+        run: | # add more commands if necessary
+          mv _index.md quartz/content
       - name: Build link index
         uses: jackyzha0/hugo-obsidian@v2.20
         with:
