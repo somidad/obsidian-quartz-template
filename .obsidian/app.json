@@ -1,0 +1,8 @@
+{
+  "newLinkFormat": "absolute",
+  "showFrontmatter": true,
+  "userIgnoreFilters": [
+    "_templates/"
+  ],
+  "alwaysUpdateLinks": true
+}
