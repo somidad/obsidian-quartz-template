@@ -1,0 +1,42 @@
+name: Publish to Github Pages
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Clone Quartz
+        run: git clone https://github.com/jackyzha0/quartz
+      - name: Reconfigure Quartz
+        run: |
+          mv config.toml quartz/
+          mv data/* quartz/data
+          rm -rf quartz/content/*
+      - name: Move content
+        run: mv _index.md assets notes quartz/content
+      - name: Build link index
+        uses: jackyzha0/hugo-obsidian@v2.20
+        with:
+          input: quartz/content
+          outout: quartz/assets/indices
+          index: true
+          root: quartz
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.96.0'
+          extedned: true
+      - name: Build Hugo
+        run: hugo --minify
+      - name: Publish
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: publish
+          publish_dir: /
+          cname: 
