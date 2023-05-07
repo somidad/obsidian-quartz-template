@@ -1,0 +1,30 @@
+name: Publish to Github Pages
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Clone Quartz
+        run: 
+      - name: Move content
+      - name: Build link index
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.96.0'
+          extedned: true
+      - name: Build Hugo
+        run: hugo --minify
+      - name: Publish
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOEKN }}
+          publish_branch: publish
+          publish_dir: /
+          cname: 
