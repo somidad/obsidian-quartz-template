@@ -24,7 +24,7 @@ jobs:
         uses: jackyzha0/hugo-obsidian@v2.20
         with:
           input: quartz/content
-          outout: quartz/assets/indices
+          output: quartz/assets/indices
           index: true
           root: quartz
       - name: Setup Hugo
