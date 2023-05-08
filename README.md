@@ -1,6 +1,3 @@
----
-draft: true
----
 # Obsidian Quartz template
 
 This is a template repository of Obsidian vault for publishing into GitHub pages using Quartz
