@@ -37,6 +37,12 @@ Following plugins are installed by default:
   - If you prefer to use Hugo template other than official Quarta, edit `Clone Quartz` step
   - If you need to include files other than `_index.md`, edit `Move content` step
   - Edit `cname` in `Publish` step
+- Visit repository *Settings > Actions > General* and set *Workflow permissions* to *Read and write permissions*
+- Visit GitHub repository *Settings > Pages*
+  - Select *Deploy from a branch* under *Build and deployment > Source*
+  - Select `publish`, `/ (root)` under *Build and deployment > Branch*
+    If `publish` branch is not visible, repeat this step after once workflow ran
+- Visit GitHub repository *Actions > Publish to Github Pages* and click *Run workflow* button
 
 ## Sponsor
 
